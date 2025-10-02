@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Logged Out</title>
+  <style>
+    body {
+      background: #f5f7fa;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .form-container {
+      max-width: 370px;
+      background: #fff;
+      margin: 70px auto 0 auto;
+      padding: 35px 24px 28px 24px;
+      border-radius: 10px;
+      box-shadow: 0 4px 32px rgba(33,33,36,0.10);
+      text-align: center;
+    }
+    h2 {
+      color: #1976d2;
+      margin: 0 0 12px 0;
+      font-size: 1.5em;
+      font-weight: 500;
+    }
+    p {
+      font-size: 1.05em;
+      margin-bottom: 18px;
+    }
+    a {
+      color: #0b5b9b;
+      text-decoration: none;
+      font-size: 1em;
+      font-weight: 500;
+    }
+    a:hover {
+      text-decoration: underline;
+      color: #1565c0;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>You have logged out</h2>
+    <p>We hope to see you again soon.</p>
+    <a href="{% url 'login' %}">Login again</a>
+  </div>
+</body>
+</html>

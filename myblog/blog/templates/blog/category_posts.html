@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Posts in {{ category.name }}</title>
+  <style>
+    body {
+      background: #e8f0f4;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background: #0288d1;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      font-size: 1.7em;
+    }
+    .container {
+      max-width: 700px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-top: 0;
+      color: #0277bd;
+      font-size: 1.4em;
+    }
+    ul.posts {
+      list-style: none;
+      padding: 0;
+    }
+    ul.posts li {
+      padding: 14px;
+      margin-bottom: 12px;
+      background: #f4f9fa;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    }
+    a.post-title {
+      font-size: 1.2em;
+      text-decoration: none;
+      color: #005b9f;
+    }
+    a.post-title:hover {
+      color: #003d6d;
+      text-decoration: underline;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.95em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">Category: {{ category.name }}</div>
+  <div class="container">
+    <ul class="posts">
+      {% for post in posts %}
+        <li>
+          <a class="post-title" href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+        </li>
+      {% empty %}
+        <li>No posts in this category yet.</li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="footer"><a href="{% url 'home' %}">Back to Homepage</a></div>
+</body>
+</html>

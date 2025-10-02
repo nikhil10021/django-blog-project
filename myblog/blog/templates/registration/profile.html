@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ user.username }} - Profile</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f8f9fb;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 720px;
+      margin: 40px auto;
+      background: white;
+      padding: 28px 36px;
+      border-radius: 8px;
+      box-shadow: 0 4px 28px rgba(0,0,0,0.12);
+    }
+    h1 {
+      margin-top: 0;
+      color: #1687d9;
+      font-weight: 700;
+    }
+    h2 {
+      color: #3a3a3a;
+      margin-bottom: 10px;
+    }
+    ul.posts-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+    ul.posts-list li {
+      background: #f1f5f9;
+      border-radius: 6px;
+      margin-bottom: 16px;
+      padding: 12px 18px;
+      box-shadow: 0 2px 5px rgba(23,35,50,0.05);
+    }
+    a.post-link {
+      font-weight: 600;
+      font-size: 1.12em;
+      text-decoration: none;
+      color: #1976d2;
+    }
+    a.post-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome, {{ user.username }}</h1>
+    <h2>Your Blog Posts</h2>
+    <ul class="posts-list">
+      {% for post in posts %}
+        <li><a class="post-link" href="{% url 'post_detail' post.id %}">{{ post.title }}</a></li>
+      {% empty %}
+        <li>You have not written any posts yet.</li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+</html>
